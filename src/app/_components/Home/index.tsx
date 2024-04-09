@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link';
 function Index() {
   const [data,setData]=useState([])
-  const [search,setSearch]=useState()
+  const [search, setSearch] = useState<number | undefined>(1);
   const [query,setQuery]=useState([])
   const [input,setInput]=useState("")
   const inpuRef=useRef()
@@ -25,7 +25,7 @@ function Index() {
       setQuery([])
     }else{
       setQuery([]);
-const filteredData: any = data.filter((item:object) => {
+const filteredData: any = data.filter((item) => {
   
   setQuery((prev) => [...prev, item.name]);
   return Object.values(item).join("").toLowerCase().includes(e.toLowerCase());
@@ -37,7 +37,7 @@ setData(filteredData);
   }
   const select=(e:any)=>{
     console.log(e)
-    setQuery(document.getElementById("se")?.innerHTML);
+    setQuery([document.getElementById("se")?.innerHTML]);
     setInput(document.getElementById('se')?.innerHTML)
     Search(document.getElementById("se")?.innerHTML);
   }
